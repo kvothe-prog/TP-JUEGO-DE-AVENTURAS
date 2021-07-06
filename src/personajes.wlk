@@ -1,10 +1,39 @@
 import wollok.game.*
 import elementos.*
 
+class PersonajeMuerto {
+	var property position
+	const property image = "playerMuerto.png"
+	
+}
+
 object personajeSimple {
 	var property position = game.at(10,8)
 	const property image = "player.png"	
 	var property ultimaDireccion = arriba
+	var property energia = 40
+	var property modificador
+		
+
+	method restarUnPuntoEnergia(){
+		energia = 0.max(energia - 1)
+	}
+	
+	method informeEnergia(){
+		return " Al personaje le quedan " + self.energia().toString() + " puntos de energía!" 
+	}
+	
+	method darEnergia(unValor){
+		energia = energia + unValor
+	}
+	
+	method sacarEnergia(unValor){
+		energia = energia - unValor
+	}
+	
+	method perdio(){
+		return energia == 0
+	}
 	
 	method empuja(unElemento) {
 		try

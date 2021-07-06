@@ -23,6 +23,7 @@ object nivelBloques {
 
 		keyboard.n().onPressDo({ if (self.comprobarSiGano(cajas) and personajeSimple.position() == game.at(4,0) ) {self.terminar()} })
 		keyboard.r().onPressDo({ self.restart() })
+		keyboard.t().onPressDo({ self.terminar() })
 		
 		keyboard.up().onPressDo({ personajeSimple.moverArriba() })
 		keyboard.down().onPressDo({ personajeSimple.moverAbajo() })
